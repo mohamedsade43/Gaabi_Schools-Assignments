@@ -1,0 +1,1965 @@
+
+/* ==================================================
+   WALANWAL RESTAURANT
+   Complete Main Stylesheet
+   ================================================== */
+
+/* 1. CSS VARIABLES */
+
+:root {
+    --primary: #173f35;
+    --primary-dark: #102d26;
+    --primary-light: #e8f0eb;
+
+    --gold: #c89b50;
+    --gold-light: #e4c27d;
+
+    --cream: #faf7f0;
+    --white: #ffffff;
+    --dark: #202923;
+    --text: #606a63;
+    --border: #e8e8df;
+
+    --shadow: 0 12px 35px rgba(23, 63, 53, 0.09);
+    --shadow-hover: 0 20px 45px rgba(23, 63, 53, 0.15);
+
+    --font-heading: "Playfair Display", Georgia, serif;
+    --font-body: "Roboto", Arial, sans-serif;
+
+    --container-width: 1140px;
+    --section-space: 85px;
+    --radius: 12px;
+    --transition: 0.3s ease;
+}
+
+
+/* 2. RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+
+    color: var(--text);
+    background-color: var(--white);
+
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--dark);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+::selection {
+    color: var(--white);
+    background-color: var(--primary);
+}
+
+:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+}
+
+
+/* 3. GLOBAL CONTAINER */
+
+.container {
+    width: min(
+        var(--container-width),
+        calc(100% - 48px)
+    );
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-padding {
+    padding-top: var(--section-space);
+    padding-bottom: var(--section-space);
+}
+
+
+/* 4. SHARED HEADINGS */
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin-bottom: 18px;
+
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    text-transform: uppercase;
+}
+
+.eyebrow i {
+    font-size: 14px;
+}
+
+h1 span,
+h2 span {
+    display: block;
+    color: var(--gold);
+}
+
+.section-heading {
+    width: 100%;
+    max-width: 680px;
+
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.section-heading h2 {
+    margin-bottom: 18px;
+    font-size: clamp(30px, 4vw, 43px);
+}
+
+.section-heading > p:last-child {
+    max-width: 560px;
+    margin: 0 auto;
+
+    color: var(--text);
+    font-size: 15px;
+}
+
+
+/* 5. BUTTONS */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    min-height: 52px;
+    padding: 13px 24px;
+
+    border: 1px solid transparent;
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.btn i {
+    font-size: 13px;
+    transition: transform var(--transition);
+}
+
+.btn:hover i {
+    transform: translateX(4px);
+}
+
+.btn-primary {
+    color: var(--white);
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    color: var(--white);
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    color: var(--white);
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-outline:hover {
+    color: var(--primary);
+    background-color: var(--white);
+    border-color: var(--white);
+}
+
+
+/* 6. NAVBAR */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+
+    background-color: var(--white);
+    border-bottom: 1px solid rgba(23, 63, 53, 0.08);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.025);
+}
+
+.navbar {
+    min-height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    flex-shrink: 0;
+
+    color: var(--primary);
+    font-family: var(--font-heading);
+    font-size: 29px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+    line-height: 1.2;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 28px;
+}
+
+.nav-links a {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 44px;
+
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: color var(--transition);
+}
+
+.nav-links > li > a:not(.nav-cta)::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+
+    width: 0;
+    height: 2px;
+
+    background-color: var(--gold);
+    transition: width var(--transition);
+}
+
+.nav-links > li > a:not(.nav-cta):hover::after,
+.nav-links > li > a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary);
+}
+
+.nav-links .nav-cta {
+    min-height: 45px;
+    padding: 0 20px;
+
+    color: var(--white);
+    background-color: var(--primary);
+    border-radius: 5px;
+}
+
+.nav-links .nav-cta:hover {
+    color: var(--white);
+    background-color: var(--primary-dark);
+}
+
+.nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    color: var(--primary);
+    background-color: var(--primary-light);
+    border: 0;
+    border-radius: 6px;
+
+    font-size: 20px;
+}
+
+
+/* 7. HERO SECTION */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 650px;
+    padding: 95px 0;
+
+    color: var(--white);
+    background-color: var(--primary-dark);
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(13, 36, 29, 0.94) 0%,
+            rgba(13, 36, 29, 0.82) 48%,
+            rgba(13, 36, 29, 0.38) 100%
+        ),
+        url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2000&q=85");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero .eyebrow {
+    color: var(--gold-light);
+}
+
+.hero h1 {
+    max-width: 750px;
+    margin-bottom: 24px;
+
+    color: var(--white);
+    font-size: clamp(42px, 5.6vw, 68px);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+}
+
+.hero h1 span {
+    margin-top: 8px;
+    color: var(--gold-light);
+}
+
+.hero-description {
+    max-width: 560px;
+    margin-bottom: 30px;
+
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.hero .btn-primary {
+    color: var(--primary-dark);
+    background-color: var(--gold-light);
+    border-color: var(--gold-light);
+}
+
+.hero .btn-primary:hover {
+    background-color: var(--white);
+    border-color: var(--white);
+}
+
+.hero-note {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-top: 35px;
+
+    color: rgba(255, 255, 255, 0.83);
+    font-size: 13px;
+}
+
+.hero-note i {
+    color: var(--gold-light);
+}
+
+
+/* 8. FEATURES SECTION */
+
+.features {
+    background-color: var(--cream);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.feature-card {
+    padding: 35px 28px;
+
+    text-align: center;
+    background-color: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+}
+
+.feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto 22px;
+
+    color: var(--primary);
+    background-color: var(--primary-light);
+    border-radius: 50%;
+
+    font-size: 25px;
+}
+
+.feature-card h3 {
+    margin-bottom: 12px;
+    font-size: 21px;
+}
+
+.feature-card p {
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+
+/* 9. ABOUT SECTION */
+
+.about {
+    background-color: var(--white);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 70px;
+}
+
+.about-image {
+    position: relative;
+    min-width: 0;
+    padding: 0 18px 18px 0;
+}
+
+.about-image img {
+    width: 100%;
+    height: 450px;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.about-badge {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 140px;
+    min-height: 105px;
+    padding: 16px;
+
+    color: var(--white);
+    background-color: var(--primary);
+    border: 5px solid var(--white);
+    border-radius: 8px;
+
+    text-align: center;
+}
+
+.about-badge span {
+    font-size: 12px;
+}
+
+.about-badge strong {
+    color: var(--gold-light);
+    font-family: var(--font-heading);
+    font-size: 23px;
+}
+
+.about-content {
+    min-width: 0;
+}
+
+.about-content .eyebrow {
+    justify-content: flex-start;
+}
+
+.about-content h2 {
+    margin-bottom: 24px;
+    font-size: clamp(31px, 3.5vw, 43px);
+}
+
+.about-content > p:not(.eyebrow) {
+    margin-bottom: 18px;
+
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.95;
+}
+
+.about-content .btn {
+    margin-top: 12px;
+}
+
+
+/* 10. FEATURED DISHES */
+
+.featured-dishes {
+    background-color: var(--cream);
+}
+
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.dish-card {
+    min-width: 0;
+    overflow: hidden;
+
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.dish-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.dish-image {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    height: 245px;
+
+    background-color: #e7e4da;
+}
+
+.dish-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.6s ease;
+}
+
+.dish-card:hover .dish-image img {
+    transform: scale(1.06);
+}
+
+.dish-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 12px;
+
+    color: var(--primary-dark);
+    background-color: var(--gold-light);
+    border-radius: 4px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.dish-content {
+    padding: 25px 24px 27px;
+}
+
+.dish-title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin-bottom: 12px;
+}
+
+.dish-title h3 {
+    font-size: 21px;
+}
+
+.dish-content > p {
+    min-height: 54px;
+    margin-bottom: 18px;
+
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.dish-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: color var(--transition);
+}
+
+.dish-link i {
+    color: var(--gold);
+    transition: transform var(--transition);
+}
+
+.dish-link:hover {
+    color: var(--gold);
+}
+
+.dish-link:hover i {
+    transform: translateX(5px);
+}
+
+.section-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+}
+
+
+/* 11. WHY CHOOSE US */
+
+.why-us {
+    background-color: var(--white);
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.why-card {
+    padding: 30px 22px;
+
+    text-align: center;
+    background-color: var(--cream);
+
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+
+    transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+}
+
+.why-card:hover {
+    background-color: var(--white);
+    border-color: var(--border);
+    transform: translateY(-5px);
+}
+
+.why-card > i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 56px;
+    height: 56px;
+
+    margin: 0 auto 20px;
+
+    color: var(--gold);
+    background-color: var(--white);
+    border-radius: 50%;
+
+    font-size: 23px;
+}
+
+.why-card h3 {
+    margin-bottom: 12px;
+    font-size: 19px;
+}
+
+.why-card p {
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+
+/* 12. TESTIMONIALS */
+
+.testimonials {
+    background-color: var(--cream);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    padding: 32px;
+
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.025);
+}
+
+.testimonial-stars {
+    display: flex;
+    gap: 5px;
+
+    margin-bottom: 20px;
+    color: var(--gold);
+    font-size: 14px;
+}
+
+.testimonial-card blockquote {
+    margin-bottom: 22px;
+
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.9;
+}
+
+.testimonial-author {
+    padding-top: 16px;
+
+    color: var(--primary);
+    border-top: 1px solid var(--border);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* 13. RESERVATION CTA */
+
+.reservation-cta {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    padding: 85px 0;
+
+    text-align: center;
+    background-color: var(--primary-dark);
+
+    background-image:
+        linear-gradient(
+            rgba(16, 45, 38, 0.93),
+            rgba(16, 45, 38, 0.93)
+        ),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85");
+
+    background-position: center;
+    background-size: cover;
+}
+
+.reservation-content {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reservation-content .eyebrow {
+    color: var(--gold-light);
+}
+
+.reservation-content h2 {
+    max-width: 700px;
+    margin-bottom: 22px;
+
+    color: var(--white);
+    font-size: clamp(32px, 4vw, 46px);
+}
+
+.reservation-content h2 span {
+    color: var(--gold-light);
+}
+
+.reservation-content > p:not(.eyebrow) {
+    max-width: 650px;
+    margin-bottom: 30px;
+
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.reservation-content .btn-primary {
+    color: var(--primary-dark);
+    background-color: var(--gold-light);
+    border-color: var(--gold-light);
+}
+
+.reservation-content .btn-primary:hover {
+    background-color: var(--white);
+    border-color: var(--white);
+}
+
+
+/* 14. FOOTER */
+
+.footer {
+    color: rgba(255, 255, 255, 0.75);
+    background-color: #102720;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 0.9fr 1fr 1.2fr;
+    gap: 40px;
+
+    padding-top: 70px;
+    padding-bottom: 60px;
+}
+
+.footer-brand,
+.footer-column {
+    min-width: 0;
+}
+
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 20px;
+
+    color: var(--white);
+    font-size: 29px;
+}
+
+.footer-brand > p {
+    max-width: 300px;
+    margin-bottom: 23px;
+
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    color: var(--white);
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+.social-links a:hover {
+    color: var(--primary-dark);
+    background-color: var(--gold-light);
+    transform: translateY(-3px);
+}
+
+.footer-column h3 {
+    margin-bottom: 23px;
+
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.footer-column ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-column ul li,
+.footer-column ul a {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 13px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.footer-column ul a {
+    transition: color var(--transition);
+}
+
+.footer-column ul a:hover {
+    color: var(--gold-light);
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.footer-contact li > i {
+    flex-shrink: 0;
+    margin-top: 6px;
+    color: var(--gold-light);
+}
+
+.opening-hours li:last-child {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 12px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px;
+
+    min-height: 75px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.footer-bottom-content p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 12px;
+}
+
+.back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    color: var(--gold-light);
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: color var(--transition);
+}
+
+.back-to-top:hover {
+    color: var(--white);
+}
+
+
+/* 15. TABLET RESPONSIVENESS */
+
+@media (max-width: 1100px) {
+
+    :root {
+        --section-space: 70px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .about-grid {
+        gap: 40px;
+    }
+
+    .dish-image {
+        height: 220px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 40px;
+    }
+}
+
+
+/* 16. SMALL TABLETS */
+
+@media (max-width: 900px) {
+
+    :root {
+        --section-space: 60px;
+    }
+
+    .navbar {
+        min-height: 75px;
+    }
+
+    .logo {
+        font-size: 26px;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+
+        max-height: calc(100vh - 90px);
+        overflow-y: auto;
+
+        padding: 18px 24px 24px;
+
+        background-color: var(--white);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 8px 0;
+    }
+
+    .nav-links > li > a:not(.nav-cta)::after {
+        display: none;
+    }
+
+    .nav-links .nav-cta {
+        justify-content: center;
+        margin-top: 8px;
+        padding: 0 18px;
+    }
+
+    .hero {
+        min-height: 560px;
+        padding: 80px 0;
+    }
+
+    .hero h1 {
+        font-size: clamp(40px, 6vw, 56px);
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .feature-card:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-image {
+        width: 100%;
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+    .about-image img {
+        height: 400px;
+    }
+
+    .about-content {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .dishes-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    .dish-card:last-child {
+        grid-column: 1 / -1;
+        width: calc(50% - 11px);
+        justify-self: center;
+    }
+
+    .why-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .testimonials-grid {
+        gap: 20px;
+    }
+
+    .testimonial-card {
+        padding: 25px;
+    }
+}
+
+
+/* 17. MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+
+    :root {
+        --section-space: 52px;
+    }
+
+    body {
+        font-size: 15px;
+    }
+
+    .container {
+        width: calc(100% - 32px);
+    }
+
+    .section-heading {
+        margin-bottom: 32px;
+    }
+
+    .section-heading h2 {
+        font-size: 31px;
+    }
+
+    .section-heading > p:last-child {
+        font-size: 14px;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+    }
+
+    .navbar {
+        min-height: 70px;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    .nav-toggle {
+        width: 42px;
+        height: 42px;
+    }
+
+    .nav-links {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 75px 0;
+
+        background-image:
+            linear-gradient(
+                rgba(13, 36, 29, 0.88),
+                rgba(13, 36, 29, 0.92)
+            ),
+            url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=80");
+
+        background-position: center;
+    }
+
+    .hero h1 {
+        font-size: clamp(36px, 9vw, 48px);
+        line-height: 1.2;
+        letter-spacing: -0.8px;
+    }
+
+    .hero h1 span {
+        margin-top: 5px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        line-height: 1.9;
+    }
+
+    .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .hero-note {
+        align-items: flex-start;
+        font-size: 12px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .feature-card,
+    .feature-card:last-child {
+        grid-column: auto;
+        padding: 28px 22px;
+    }
+
+    .feature-icon {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 17px;
+        font-size: 22px;
+    }
+
+    .feature-card h3 {
+        font-size: 20px;
+    }
+
+    .about-grid {
+        gap: 32px;
+    }
+
+    .about-image {
+        padding-right: 10px;
+        padding-bottom: 12px;
+    }
+
+    .about-image img {
+        height: 300px;
+        border-radius: 9px;
+    }
+
+    .about-badge {
+        min-width: 115px;
+        min-height: 85px;
+        padding: 10px;
+        border-width: 4px;
+    }
+
+    .about-badge span {
+        font-size: 11px;
+    }
+
+    .about-badge strong {
+        font-size: 20px;
+    }
+
+    .about-content h2 {
+        font-size: 32px;
+    }
+
+    .about-content > p:not(.eyebrow) {
+        font-size: 14px;
+    }
+
+    .about-content .btn {
+        width: 100%;
+    }
+
+    .dishes-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .dish-card:last-child {
+        grid-column: auto;
+        width: 100%;
+    }
+
+    .dish-image {
+        height: auto;
+        aspect-ratio: 4 / 3;
+        max-height: 300px;
+    }
+
+    .dish-content {
+        padding: 23px 20px;
+    }
+
+    .dish-title h3 {
+        font-size: 20px;
+    }
+
+    .dish-content > p {
+        min-height: 0;
+    }
+
+    .section-action {
+        margin-top: 30px;
+    }
+
+    .section-action .btn {
+        width: 100%;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .why-card {
+        padding: 27px 22px;
+    }
+
+    .why-card h3 {
+        font-size: 19px;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .testimonial-card {
+        padding: 24px 21px;
+    }
+
+    .testimonial-card blockquote {
+        font-size: 16px;
+    }
+
+    .reservation-cta {
+        padding: 60px 0;
+    }
+
+    .reservation-content h2 {
+        font-size: 32px;
+    }
+
+    .reservation-content > p:not(.eyebrow) {
+        font-size: 14px;
+    }
+
+    .reservation-content .btn {
+        width: 100%;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+
+        padding-top: 48px;
+        padding-bottom: 40px;
+    }
+
+    .footer-brand > p {
+        max-width: 100%;
+    }
+
+    .footer-column h3 {
+        margin-bottom: 16px;
+    }
+
+    .footer-bottom-content {
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        text-align: center;
+    }
+}
+
+
+/* 18. EXTRA SMALL MOBILE */
+
+@media (max-width: 360px) {
+
+    .container {
+        width: calc(100% - 24px);
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .section-heading h2,
+    .about-content h2,
+    .reservation-content h2 {
+        font-size: 28px;
+    }
+
+    .btn {
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+
+    .about-image img {
+        height: 250px;
+    }
+}
+
+
+/* 19. ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* =========================================
+   WALANWAL RESTAURANT
+   Responsive Stylesheet
+========================================= */
+
+/* 1. Tablets and Small Laptops */
+@media (max-width: 1024px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .navbar {
+        gap: 16px;
+    }
+
+    .nav-links {
+        gap: 17px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .nav-cta .btn {
+        padding: 11px 16px;
+        font-size: 13px;
+    }
+
+    .section-padding {
+        padding: 75px 0;
+    }
+
+    .about-grid {
+        gap: 40px;
+    }
+
+    .about-image img {
+        height: 400px;
+    }
+
+    .dishes-grid,
+    .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .why-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 35px;
+    }
+}
+
+/* 2. Mobile Navigation */
+@media (max-width: 768px) {
+
+    .container {
+        width: 90%;
+    }
+
+    .navbar {
+        position: relative;
+        min-height: 72px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+        margin-left: auto;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1001;
+
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        padding: 12px 20px;
+        background: var(--white);
+        border-top: 1px solid var(--border);
+        box-shadow: var(--shadow);
+    }
+
+    /* Add class "show" using JavaScript */
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 13px 0;
+        font-size: 15px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+
+    .nav-cta {
+        display: none;
+    }
+
+    .hero {
+        min-height: 550px;
+        padding: 75px 0;
+        background-position: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 8vw, 55px);
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .section-padding {
+        padding: 65px 0;
+    }
+
+    .section-heading {
+        margin-bottom: 32px;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
+    .features {
+        padding: 40px 0;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .feature-card {
+        padding: 24px 20px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .about-image {
+        width: calc(100% - 12px);
+        margin-left: 12px;
+    }
+
+    .about-image img {
+        height: 350px;
+    }
+
+    .about-image::after {
+        top: 12px;
+        left: -12px;
+    }
+
+    .about-content h2 {
+        font-size: 32px;
+    }
+
+    .dishes-grid,
+    .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .dish-image,
+    .menu-card-image {
+        height: 200px;
+    }
+
+    .dish-info,
+    .menu-card-content {
+        padding: 17px;
+    }
+
+    .dish-info h3,
+    .menu-card-content h3 {
+        font-size: 19px;
+    }
+
+    .dish-price,
+    .menu-card-price {
+        font-size: 17px;
+    }
+
+    .why-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .why-card {
+        padding: 23px 14px;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .testimonial-card {
+        padding: 25px;
+    }
+
+    .reservation-cta {
+        padding: 65px 0;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 22px;
+    }
+
+    .contact-grid,
+    .reservation-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .menu-hero,
+    .page-hero {
+        padding: 70px 0;
+    }
+
+    .menu-section {
+        padding: 60px 0;
+    }
+}
+
+/* 3. Small Phones */
+@media (max-width: 480px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .navbar {
+        min-height: 66px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .nav-toggle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero {
+        min-height: 510px;
+        padding: 60px 0;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .btn {
+        min-height: 46px;
+        padding: 11px 18px;
+    }
+
+    .section-padding {
+        padding: 52px 0;
+    }
+
+    .section-heading h2 {
+        font-size: 28px;
+    }
+
+    .about-image img {
+        height: 280px;
+    }
+
+    .dishes-grid,
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .dish-image,
+    .menu-card-image {
+        height: 240px;
+    }
+
+    .dish-info,
+    .menu-card-content {
+        padding: 20px;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-card {
+        padding: 25px 20px;
+    }
+
+    .menu-filter {
+        gap: 8px;
+    }
+
+    .filter-btn {
+        padding: 9px 14px;
+        font-size: 12px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .footer {
+        padding-top: 48px;
+    }
+
+    .footer-grid {
+        padding-bottom: 32px;
+    }
+
+    .footer-bottom p {
+        font-size: 12px;
+    }
+
+    .contact-info,
+    .form-card {
+        padding: 22px 18px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .menu-hero,
+    .page-hero {
+        padding: 55px 0;
+    }
+
+    .menu-hero h1,
+    .page-hero h1 {
+        font-size: 35px;
+    }
+
+    .reservation-cta h2 {
+        font-size: 29px;
+    }
+}
+
+/* 4. Extra Small Phones */
+@media (max-width: 360px) {
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .hero h1 {
+        font-size: 33px;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    .filter-btn {
+        padding: 8px 11px;
+        font-size: 11px;
+    }
+
+    .dish-image,
+    .menu-card-image {
+        height: 210px;
+    }
+}

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | Walanwal Restaurant</title>
+
+    <meta name="description"
+          content="Contact Walanwal Restaurant for reservations, questions, and dining information. We look forward to serving you.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Website CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Contact Page CSS -->
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body>
+
+    
+    <header class="header">
+        <nav class="navbar container">
+
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-utensils"></i>
+                Walanwal<span>.</span>
+            </a>
+
+            <button
+                class="nav-toggle"
+                id="navToggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Our Menu</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="reservations.html">Reservations</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <a href="reservations.html" class="btn btn-primary nav-cta">
+                <i class="fa-regular fa-calendar-check"></i>
+                Book a Table
+            </a>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- ================= HERO SECTION ================= -->
+        <section class="page-hero contact-hero">
+
+            <div class="container page-hero-content">
+
+                <span class="eyebrow">GET IN TOUCH</span>
+
+                <h1>We'd Love to <span>Hear From You</span></h1>
+
+                <p>
+                    Have a question, need help with a reservation, or want to
+                    share your experience? Our team is here to help.
+                </p>
+
+                <div class="contact-breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span>Contact</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT INFORMATION ================= -->
+        <section class="contact-section section-padding">
+
+            <div class="container">
+
+                <div class="section-heading contact-heading">
+
+                    <span class="eyebrow">CONTACT INFORMATION</span>
+
+                    <h2>Let's Start a <span>Conversation</span></h2>
+
+                    <p>
+                        Reach out to us using the contact details below.
+                        We will be happy to assist you.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-info-grid">
+
+                    <!-- Phone -->
+                    <article class="contact-info-card">
+
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+
+                        <h3>Call Us</h3>
+
+                        <p>
+                            Have a question? Give us a call.
+                        </p>
+
+                        <a href="tel:+252XXXXXXXXX">
+                            +252 XX XXX XXXX
+                        </a>
+
+                    </article>
+
+
+                    <!-- Email -->
+                    <article class="contact-info-card">
+
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+
+                        <h3>Email Us</h3>
+
+                        <p>
+                            Send us your questions or feedback.
+                        </p>
+
+                        <a href="mailto:info@yourdomain.com">
+                            info@yourdomain.com
+                        </a>
+
+                    </article>
+
+
+                    <!-- Address -->
+                    <article class="contact-info-card">
+
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+
+                        <h3>Visit Us</h3>
+
+                        <p>
+                            Come and enjoy a memorable dining experience.
+                        </p>
+
+                        <span class="contact-detail-text">
+                            Your Restaurant Address
+                        </span>
+
+                    </article>
+
+
+                    <!-- Opening Hours -->
+                    <article class="contact-info-card">
+
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+
+                        <h3>Opening Hours</h3>
+
+                        <p>
+                            We look forward to welcoming you.
+                        </p>
+
+                        <span class="contact-detail-text">
+                            Daily: 10:00 AM – 10:00 PM
+                        </span>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT FORM ================= -->
+        <section class="contact-form-section">
+
+            <div class="container">
+
+                <div class="contact-form-layout">
+
+                    <!-- Form Content -->
+                    <div class="contact-form-card">
+
+                        <span class="eyebrow">SEND US A MESSAGE</span>
+
+                        <h2>How Can We Help You?</h2>
+
+                        <p class="contact-form-description">
+                            Fill out the form below and tell us what you
+                            need. We appreciate your feedback.
+                        </p>
+
+
+                        <form id="contactForm" class="contact-form">
+
+                            <div class="contact-form-row">
+
+                                <div class="form-group">
+                                    <label for="fullName">
+                                        Full Name *
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="fullName"
+                                        name="fullName"
+                                        placeholder="Enter your full name"
+                                        autocomplete="name"
+                                        required>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="email">
+                                        Email Address *
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        placeholder="Enter your email"
+                                        autocomplete="email"
+                                        required>
+                                </div>
+
+                            </div>
+
+
+                            <div class="contact-form-row">
+
+                                <div class="form-group">
+                                    <label for="phone">
+                                        Phone Number
+                                    </label>
+
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        name="phone"
+                                        placeholder="Enter your phone number"
+                                        autocomplete="tel">
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="subject">
+                                        Subject *
+                                    </label>
+
+                                    <select
+                                        id="subject"
+                                        name="subject"
+                                        required>
+
+                                        <option value="" disabled selected>
+                                            Select a subject
+                                        </option>
+
+                                        <option value="General Inquiry">
+                                            General Inquiry
+                                        </option>
+
+                                        <option value="Reservation">
+                                            Reservation
+                                        </option>
+
+                                        <option value="Menu Question">
+                                            Menu Question
+                                        </option>
+
+                                        <option value="Feedback">
+                                            Feedback
+                                        </option>
+
+                                        <option value="Complaint">
+                                            Complaint
+                                        </option>
+
+                                        <option value="Other">
+                                            Other
+                                        </option>
+
+                                    </select>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="message">
+                                    Your Message *
+                                </label>
+
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows="6"
+                                    placeholder="Write your message here..."
+                                    required></textarea>
+
+                            </div>
+
+
+                            <div
+                                id="contactFormMessage"
+                                class="contact-form-message"
+                                role="status"
+                                aria-live="polite">
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary">
+
+                                <span>Send Message</span>
+
+                                <i class="fa-solid fa-paper-plane"></i>
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+
+                    <!-- Contact Image and Support -->
+                    <aside class="contact-side-panel">
+
+                        <div class="contact-side-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=85"
+                                alt="Restaurant dining table prepared for guests"
+                                loading="lazy">
+
+                        </div>
+
+
+                        <div class="contact-side-content">
+
+                            <span class="eyebrow">WE ARE HERE FOR YOU</span>
+
+                            <h3>Your Experience Matters to Us</h3>
+
+                            <p>
+                                At Walanwal Restaurant, we believe every guest
+                                deserves excellent service, delicious food,
+                                and a welcoming atmosphere.
+                            </p>
+
+                            <div class="contact-side-feature">
+
+                                <i class="fa-solid fa-check-circle"></i>
+
+                                <span>Friendly customer service</span>
+
+                            </div>
+
+                            <div class="contact-side-feature">
+
+                                <i class="fa-solid fa-check-circle"></i>
+
+                                <span>Help with table reservations</span>
+
+                            </div>
+
+                            <div class="contact-side-feature">
+
+                                <i class="fa-solid fa-check-circle"></i>
+
+                                <span>Feedback and special requests</span>
+
+                            </div>
+
+
+                            <a href="reservations.html"
+                               class="btn btn-outline-light">
+
+                                Reserve a Table
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </aside>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MAP SECTION ================= -->
+        <section class="contact-map-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">FIND OUR RESTAURANT</span>
+
+                    <h2>Come and <span>Visit Us</span></h2>
+
+                    <p>
+                        We look forward to welcoming you to Walanwal Restaurant.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-map-placeholder">
+
+                    <div class="map-placeholder-content">
+
+                        <div class="map-placeholder-icon">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+
+                        <h3>Find Walanwal Restaurant</h3>
+
+                        <p>
+                            Add your real restaurant location to display
+                            the map here.
+                        </p>
+
+                        <a
+                            href="https://maps.google.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-primary">
+
+                            Open Google Maps
+
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA SECTION ================= -->
+        <section class="contact-cta">
+
+            <div class="container contact-cta-content">
+
+                <div>
+
+                    <span class="eyebrow">READY TO DINE WITH US?</span>
+
+                    <h2>Good Food. Great Moments.</h2>
+
+                    <p>
+                        Make your next meal special. Reserve your table today.
+                    </p>
+
+                </div>
+
+                <a href="reservations.html" class="btn btn-gold">
+
+                    Book Your Table
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <!-- Brand -->
+                <div class="footer-about">
+
+                    <a href="index.html" class="logo footer-logo">
+
+                        <span class="logo-icon">
+                            <i class="fa-solid fa-utensils"></i>
+                        </span>
+
+                        <span>Walanwal<span class="logo-highlight">.</span></span>
+
+                    </a>
+
+                    <p>
+                        Delicious food, warm hospitality, and memorable
+                        dining experiences. We look forward to serving you.
+                    </p>
+
+
+                    <div class="footer-socials">
+
+                        <a href="#" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="#" aria-label="TikTok">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Quick Links -->
+                <div class="footer-links">
+
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Our Menu</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="reservations.html">Reservations</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+
+                </div>
+
+
+                <!-- Contact -->
+                <div class="footer-contact">
+
+                    <h3>Contact Information</h3>
+
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Your Restaurant Address</span>
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+252XXXXXXXXX">
+                            +252 XX XXX XXXX
+                        </a>
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:info@yourdomain.com">
+                            info@yourdomain.com
+                        </a>
+                    </p>
+
+                </div>
+
+
+                <!-- Opening Hours -->
+                <div class="footer-hours">
+
+                    <h3>Opening Hours</h3>
+
+                    <p>Monday – Sunday</p>
+
+                    <p>10:00 AM – 10:00 PM</p>
+
+                    <a href="reservations.html" class="footer-booking-link">
+                        Make a Reservation
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    &copy; <span id="currentYear"></span>
+                    Walanwal Restaurant. All rights reserved.
+                </p>
+
+                <p>Made with care for food lovers.</p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        // Mobile Navigation
+        const navToggle = document.getElementById("navToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        if (navToggle && navLinks) {
+            navToggle.addEventListener("click", function () {
+                const isOpen = navLinks.classList.toggle("show");
+
+                navToggle.setAttribute("aria-expanded", isOpen);
+
+                const icon = navToggle.querySelector("i");
+
+                if (icon) {
+                    icon.classList.toggle("fa-bars", !isOpen);
+                    icon.classList.toggle("fa-xmark", isOpen);
+                }
+            });
+
+            navLinks.querySelectorAll("a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    navLinks.classList.remove("show");
+                    navToggle.setAttribute("aria-expanded", "false");
+
+                    const icon = navToggle.querySelector("i");
+
+                    if (icon) {
+                        icon.classList.add("fa-bars");
+                        icon.classList.remove("fa-xmark");
+                    }
+                });
+            });
+        }
+
+
+        // Automatic Footer Year
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+
+
+        // Contact Form Demo
+        const contactForm = document.getElementById("contactForm");
+        const contactFormMessage =
+            document.getElementById("contactFormMessage");
+
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+
+            contactFormMessage.textContent =
+                "Thank you for contacting us! This is a demo form. " +
+                "Your message has not been sent. Please connect a backend " +
+                "or email service to receive real messages.";
+
+            contactFormMessage.classList.add("visible");
+
+            contactForm.reset();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+/* Responsive rules: mobile first enhancements */
+@media (max-width: 760px) {
+  nav { flex-wrap: wrap; padding: 14px 18px; }
+  .nav-toggle { display: inline-block; }
+  nav ul { display: none; width: 100%; flex-direction: column; align-items: stretch; gap: 0; padding-top: 8px; }
+  nav ul.is-open { display: flex; }
+  nav li a { display: block; padding: 12px 4px; border-top: 1px solid var(--color-border); }
+  .hero { min-height: 62vh; padding: 72px 20px; }
+  .hero p:not(.eyebrow) { font-size: 1rem; }
+  .page-content { padding: 48px 18px; }
+  .card-grid, .split-layout, .contact-layout { grid-template-columns: 1fr; gap: 20px; }
+  .image-placeholder.large { min-height: 220px; }
+}
+@media (max-width: 420px) {
+  .logo { max-width: 220px; font-size: 1.08rem; }
+  .button { width: 100%; margin-right: 0; text-align: center; }
+  .card, .form-card { padding: 18px; }
+}
