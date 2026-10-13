@@ -1,0 +1,340 @@
+
+/* =========================
+   1. RESET AND VARIABLES
+========================= */
+
+:root {
+    --background: #0b1020;
+    --calculator: #141b2d;
+    --display: #0d1425;
+    --border: #263149;
+    --text: #f1f5f9;
+    --muted: #8490a8;
+    --button: #202a40;
+    --button-hover: #2d3952;
+    --primary: #818cf8;
+    --primary-light: #a5b4fc;
+    --success: #34d399;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #1c2850 0,
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            #172447 0,
+            transparent 35%
+        ),
+        var(--background);
+}
+
+/* =========================
+   2. CALCULATOR CONTAINER
+========================= */
+
+.calculator {
+    width: 100%;
+    max-width: 390px;
+    padding: 24px;
+
+    background: var(--calculator);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================
+   3. HEADER
+========================= */
+
+.calculator-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+
+    border-radius: 14px;
+    background: linear-gradient(
+        135deg,
+        #818cf8,
+        #6366f1
+    );
+
+    color: white;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.brand h1 {
+    font-size: 20px;
+    letter-spacing: -0.5px;
+}
+
+.brand p {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--success);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 10px rgba(52, 211, 153, 0.4);
+}
+
+/* =========================
+   4. DISPLAY
+========================= */
+
+.display {
+    min-height: 145px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    padding: 20px;
+    margin-bottom: 20px;
+
+    background: var(--display);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+.display-label {
+    align-self: flex-start;
+    margin-bottom: auto;
+
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.previous-operand {
+    min-height: 25px;
+    width: 100%;
+    margin-top: 12px;
+
+    color: var(--muted);
+    font-size: 16px;
+    text-align: right;
+
+    overflow-wrap: anywhere;
+}
+
+.current-operand {
+    width: 100%;
+    margin-top: 8px;
+
+    color: var(--text);
+    font-size: clamp(30px, 8vw, 38px);
+    font-weight: 600;
+    letter-spacing: -1.5px;
+    text-align: right;
+
+    overflow-wrap: anywhere;
+}
+
+/* =========================
+   5. KEYPAD
+========================= */
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.key {
+    min-width: 0;
+    height: 60px;
+
+    border: 1px solid transparent;
+    border-radius: 14px;
+
+    background: var(--button);
+    color: var(--text);
+
+    font-family: inherit;
+    font-size: 19px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease,
+        border-color 0.2s ease;
+}
+
+.key:hover {
+    background: var(--button-hover);
+    border-color: #3a4865;
+}
+
+.key:active {
+    transform: scale(0.94);
+}
+
+.key:focus-visible {
+    outline: 2px solid var(--primary-light);
+    outline-offset: 3px;
+}
+
+/* Special buttons */
+
+.utility {
+    color: var(--primary-light);
+    background: #252d48;
+}
+
+.utility:hover {
+    background: #333e61;
+}
+
+.operator {
+    color: var(--primary-light);
+    background: #242b4b;
+    font-size: 23px;
+}
+
+.operator:hover {
+    background: #333d68;
+}
+
+/* Equals button */
+
+.equals {
+    color: #11172b;
+    background: linear-gradient(
+        135deg,
+        var(--primary-light),
+        var(--primary)
+    );
+
+    font-size: 25px;
+}
+
+.equals:hover {
+    background: #c0c7ff;
+}
+
+/* =========================
+   6. FOOTER
+========================= */
+
+.calculator-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    margin-top: 22px;
+    padding-top: 16px;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--muted);
+    font-size: 10px;
+}
+
+/* =========================
+   7. RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 420px) {
+    body {
+        padding: 14px;
+    }
+
+    .calculator {
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .keypad {
+        gap: 8px;
+    }
+
+    .key {
+        height: 56px;
+        border-radius: 12px;
+        font-size: 17px;
+    }
+
+    .display {
+        padding: 16px;
+    }
+
+    .calculator-header {
+        margin-bottom: 22px;
+    }
+}
+
+@media (max-height: 650px) {
+    body {
+        align-items: flex-start;
+    }
+
+    .calculator {
+        margin: auto 0;
+    }
+
+    .key {
+        height: 48px;
+    }
+
+    .display {
+        min-height: 115px;
+    }
+}
